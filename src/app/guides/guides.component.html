@@ -1,0 +1,10 @@
+<div class="guide-list">
+  <div *ngFor="let guide of guideList">
+    <app-guide [id]="guide.id"
+      [title]="guide.title"
+      [description]="guide.description"
+      [imgurl]="guide.imgurl"
+    >
+    </app-guide>
+  </div>
+</div>
