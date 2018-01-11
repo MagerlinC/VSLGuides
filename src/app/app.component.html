@@ -1,14 +1,34 @@
 <html>
-
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <!--The content below is only a placeholder and can be replaced.-->
-  <div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-   </h1>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <div class="sidenav-hover" (mouseenter)="sidenav.open()">
   </div>
-
-  <router-outlet>
-  </router-outlet>
-
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [opened]="false">
+      <div class="sidenav-header">
+      </div>
+      <div class="sidenav-list">
+        <app-sidenavitem (click)="goToGuides()" [title]="'Guides'" [iconPath]="'assets/guide.svg'">
+        </app-sidenavitem>
+        <div (click)="goToFAQ()">
+          <app-sidenavitem (click)="goToFAQ()" [title]="'FAQ'" [iconPath]="'assets/discuss-issue.svg'">
+          </app-sidenavitem>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content (mouseenter)="sidenav.close()">
+      <router-outlet >
+      </router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <div class="mobile-bot-nav">
+    <a (click)="goToGuides()">
+      <app-mobile-nav-icon [iconUrl]="'../assets/guide.svg'" [selectorName]="'guides'">
+      </app-mobile-nav-icon>
+    </a>
+    <a (click)="goToFAQ()">
+      <app-mobile-nav-icon [iconUrl]="'../assets/discuss-issue.svg'" [selectorName]="'FAQ'">
+      </app-mobile-nav-icon>
+    </a>
+  </div>
 </html>

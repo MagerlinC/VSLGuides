@@ -2,6 +2,19 @@ $primary-font: 'Robot', sans-serif;
 
 .guide-card {
 }
-.guide-header {
+.card-layout {
+  display: grid;
+  grid-template-columns: 0.3fr 2fr;
+}
+
+mat-card-title {
   font-size: 2em;
+}
+
+
+
+.guide-icon {
+  height: auto;
+  width: auto;
+  max-width: 8vw;
 }

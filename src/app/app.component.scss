@@ -1,6 +1,93 @@
 $primary-font: 'Roboto', sans-serif;
-
+$primary-color: #009ee3;
 
 html {
   font-family: $primary-font;
+}
+
+mat-sidenav {
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 12vw;
+  background-color: $primary-color;
+}
+
+mat-sidenav-container {
+
+}
+
+.sidenav-header {
+  height: 4.5vh;
+  background-color: white;
+  background-image: url("../assets/RamLogo.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 1em;
+}
+
+.sidenav-hover {
+  z-index: 98;
+  background: rgba(0,0,0,0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 4.5vw !important;
+  min-width: 4.5vw !important;
+}
+.spacer {
+
+}
+.sidenav-header img {
+  display: block;
+  visibility: hidden; /*hidden but reserve the space*/
+  width: 100%;
+  height: auto;
+}
+
+.mobile-bot-nav {
+  z-index: 99;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  height: 10%;
+  background-color: $primary-color;
+}
+
+
+//Browser is between 0px and 640px wide
+@media screen and (max-width: 640px) {
+  mat-sidenav {
+    display:none;
+  }
+  mat-sidenav-content {
+    margin-bottom: 10%;
+  }
+  .mobile-bot-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+//Browser is wider than 640px
+@media screen and (min-width: 640px) {
+  .mobile-bot-nav {
+    display: none;
+  }
+  mat-sidenav-content {
+    margin-bottom: 0%;
+  }
+  mat-sidenav {
+    display: block;
+  }
+}
+
+@media screen and (orientation: landscape){
+
+}
+
+@media screen and (orientation: portrait) {
+
 }

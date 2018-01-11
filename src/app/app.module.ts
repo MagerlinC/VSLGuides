@@ -13,13 +13,18 @@ import { GuideComponent } from './guide/guide.component';
 import { FaqitemComponent } from './faqitem/faqitem.component';
 import { DataService } from './DataService';
 import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCheckboxModule } from '@angular/material';
+import { SidenavitemComponent } from './sidenavitem/sidenavitem.component';
+import { MobileNavIconComponent } from './mobile-nav-icon/mobile-nav-icon.component';
 
 
 const appRoutes: Routes = [
   { path: 'guides',
     component: GuidesComponent,
   },
-  { path: 'faqlist', component: FaqlistComponent,
+  { path: 'FAQ', component: FaqlistComponent,
   },
   { path: '',
     redirectTo: '/guides',
@@ -35,12 +40,17 @@ const appRoutes: Routes = [
     FaqlistComponent,
     PagenotfoundComponent,
     GuideComponent,
-    FaqitemComponent
+    FaqitemComponent,
+    SidenavitemComponent,
+    MobileNavIconComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     MatCardModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    BrowserAnimationsModule,
     HttpModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes,
