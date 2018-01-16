@@ -8,6 +8,4 @@ export class Guide {
   }
 
   constructor(public id: number, public title: string, public description: string, public imgurl: string) {}
-
-
 }

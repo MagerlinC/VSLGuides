@@ -1,3 +1,14 @@
-<p>
-  faqitem works!
-</p>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{question}}
+      </mat-panel-title>
+      <!--mat-panel-description>
+        {{id}}
+      </mat-panel-description !-->
+    </mat-expansion-panel-header>
+    <p>{{answer}}</p>
+  </mat-expansion-panel>
+</mat-accordion>

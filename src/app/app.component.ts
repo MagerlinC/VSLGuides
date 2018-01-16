@@ -13,7 +13,6 @@ import {DataService} from './DataService';
 export class AppComponent {
   title = 'VSLGuides';
   events = [];
-  navToggled = false;
   constructor(private dataService: DataService, private http: Http, private router: Router) {
   }
 
@@ -26,7 +25,7 @@ export class AppComponent {
   goToFAQ() {
     this.router.navigate(['/FAQ']);
   }
-  toggleNav() {
-    this.navToggled = !this.navToggled;
+  toggleGrey() {
+    console.log("Make content grey again!");
   }
 }

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Guide} from './Guide';
+import {FAQ} from './FAQ';
 
 @Injectable()
 export class DataService {
@@ -16,6 +17,15 @@ export class DataService {
          guides.push(Guide.fromJson(guideJson));
        }
        return guides;
+    });
+  }
+  getFAQs() {
+     return this.http.get(this.apiUrl + '/FAQ').toPromise().then((res) => {
+       const faqs: FAQ[] = [];
+       for (const guideJson of res.json()) {
+         faqs.push(FAQ.fromJson(guideJson));
+       }
+       return faqs;
     });
   }
 }

@@ -1,0 +1,10 @@
+.item-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.list-header-title {
+  font-size: 2em;
+  padding: 2vw;
+  font-weight: bold;
+}

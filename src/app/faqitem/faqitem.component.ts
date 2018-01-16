@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-faqitem',
   templateUrl: './faqitem.component.html',
-  styleUrls: ['./faqitem.component.css']
+  styleUrls: ['./faqitem.component.scss']
 })
 export class FaqitemComponent implements OnInit {
-
-  constructor() { }
+  @Input() id;
+  @Input() question;
+  @Input() answer;
+  isSelected;
+  constructor() {
+    this.isSelected = false;
+  }
 
   ngOnInit() {
   }
 
+  showContents() {
+    this.isSelected = true;
+  }
 }

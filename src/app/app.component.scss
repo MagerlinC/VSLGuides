@@ -1,30 +1,40 @@
 $primary-font: 'Roboto', sans-serif;
 $primary-color: #009ee3;
+$side-nav-color: #FFFFFF;
+$side-nav-text-color: #000000;
 
 html {
   font-family: $primary-font;
 }
 
+
+.card-layout {
+  display: grid;
+  grid-template-columns: 0.3fr 2fr;
+}
+
+mat-card-title {
+  font-size: 2em;
+}
+
+
 mat-sidenav {
-  color: white;
+  color: $side-nav-text-color;
   position: fixed;
   top: 0;
   left: 0;
   max-width: 12vw;
-  background-color: $primary-color;
+  background-color: $side-nav-color;
 }
 
 mat-sidenav-container {
 
 }
 
-.sidenav-header {
-  height: 4.5vh;
-  background-color: white;
-  background-image: url("../assets/RamLogo.gif");
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: 1em;
+.ramlogo {
+  padding: 2vw;
+  height: auto;
+  width: 75%;
 }
 
 .sidenav-hover {

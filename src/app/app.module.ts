@@ -18,7 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material';
 import { SidenavitemComponent } from './sidenavitem/sidenavitem.component';
 import { MobileNavIconComponent } from './mobile-nav-icon/mobile-nav-icon.component';
-
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 
 const appRoutes: Routes = [
   { path: 'guides',
@@ -51,6 +53,9 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatCheckboxModule,
     BrowserAnimationsModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
     HttpModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes,

@@ -1,3 +1,10 @@
-<div class="faq-list">
-  <div>FAQ WORKS</div>
+<div class="list-header-title">Virtual Solutions Lab - FAQ</div>
+<div class="item-list">
+  <div *ngFor="let faq of faqList">
+    <app-faqitem [id]="faq.id"
+      [question]="faq.question"
+      [answer]="faq.answer"
+    >
+    </app-faqitem>
+  </div>
 </div>

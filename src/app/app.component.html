@@ -1,12 +1,11 @@
 <html>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <div class="sidenav-hover" (mouseenter)="sidenav.open()">
+  <div class="sidenav-hover" (mouseenter)="sidenav.open(); toggleGrey()">
   </div>
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" [opened]="false">
-      <div class="sidenav-header">
-      </div>
+    <mat-sidenav #sidenav mode="push" [opened]="false">
+      <img class="ramlogo" src="../assets/RamLogo.gif">
       <div class="sidenav-list">
         <app-sidenavitem (click)="goToGuides()" [title]="'Guides'" [iconPath]="'assets/guide.svg'">
         </app-sidenavitem>
@@ -16,7 +15,7 @@
         </div>
       </div>
     </mat-sidenav>
-    <mat-sidenav-content (mouseenter)="sidenav.close()">
+    <mat-sidenav-content>
       <router-outlet >
       </router-outlet>
     </mat-sidenav-content>
