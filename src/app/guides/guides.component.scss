@@ -1,10 +1,11 @@
 .item-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: block;
+  padding: 5vw 10vw 10vw 10vw;
 }
 
 .list-header-title {
   font-size: 2em;
+  color: #009CE3;
   padding: 2vw;
   font-weight: bold;
 }

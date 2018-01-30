@@ -1,18 +1,22 @@
 <html>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <div class="sidenav-hover" (mouseenter)="sidenav.open(); toggleGrey()">
+  <div class="sidenav-hover" (mouseenter)="sidenav.open()">
   </div>
   <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="push" [opened]="false">
       <img class="ramlogo" src="../assets/RamLogo.gif">
       <div class="sidenav-list">
-        <app-sidenavitem (click)="goToGuides()" [title]="'Guides'" [iconPath]="'assets/guide.svg'">
+        <app-sidenavitem (click)="goToGuides(); sidenav.close();" [title]="'Guides'" [iconPath]="'assets/guide.svg'">
         </app-sidenavitem>
-        <div (click)="goToFAQ()">
-          <app-sidenavitem (click)="goToFAQ()" [title]="'FAQ'" [iconPath]="'assets/discuss-issue.svg'">
-          </app-sidenavitem>
-        </div>
+        <app-sidenavitem (click)="goToFAQ(); sidenav.close();" [title]="'FAQ'" [iconPath]="'assets/discuss-issue.svg'">
+        </app-sidenavitem>
+        <button mat-raised-button (click)="postFAQ('TestQ', 'TestA')">
+          CLICK ME TO POST TEST FAQ
+        </button>
+        <button mat-raised-button (click)="postGuide('TestTitle', 'TestDescription','')">
+          CLICK ME TO POST TEST GUIDE
+        </button>
       </div>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -21,11 +25,11 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
   <div class="mobile-bot-nav">
-    <a (click)="goToGuides()">
-      <app-mobile-nav-icon [iconUrl]="'../assets/guide.svg'" [selectorName]="'guides'">
+    <a (click)="goToGuides()" class="mobilenavicon">
+      <app-mobile-nav-icon [iconUrl]="'../assets/map.svg'" [selectorName]="'guides'">
       </app-mobile-nav-icon>
     </a>
-    <a (click)="goToFAQ()">
+    <a (click)="goToFAQ()" class="mobilenavicon">
       <app-mobile-nav-icon [iconUrl]="'../assets/discuss-issue.svg'" [selectorName]="'FAQ'">
       </app-mobile-nav-icon>
     </a>

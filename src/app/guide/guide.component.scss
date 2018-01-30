@@ -3,10 +3,18 @@ $primary-font: 'Robot', sans-serif;
 .guide-card {
 }
 
+.card-layout {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
 
 
 .guide-icon {
   height: auto;
   width: auto;
   max-width: 8vw;
+}
+
+mat-card-title {
+  font-size: 1.8em;
 }

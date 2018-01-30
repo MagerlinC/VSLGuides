@@ -25,7 +25,13 @@ export class AppComponent {
   goToFAQ() {
     this.router.navigate(['/FAQ']);
   }
-  toggleGrey() {
-    console.log("Make content grey again!");
+  postFAQ(question: string, answer: string) {
+    this.dataService.postFAQ(question, answer);
+  }
+  postGuide(title: string, description: string, imgurl: string) {
+    this.dataService.postGuide(title, description, imgurl);
+  }
+  deleteGuide(title: string, description: string, imgurl: string) {
+    this.dataService.deleteGuide(title, description, imgurl);
   }
 }

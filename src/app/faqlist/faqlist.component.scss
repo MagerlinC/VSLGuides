@@ -1,10 +1,25 @@
 .item-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: block;
+  padding: 5vw 10vw 10vw 10vw;
 }
 
 .list-header-title {
   font-size: 2em;
   padding: 2vw;
+  color: #009CE3;
   font-weight: bold;
+}
+
+app-faqitem {
+  padding: 2vw 0vw 2vw 0vw;
+}
+
+//Browser is between 0px and 640px wide
+@media screen and (max-width: 640px) {
+  .item-list {
+    padding: 0vw !important;
+  }
+  .list-header-title {
+    padding-bottom: 4vh;
+  }
 }
