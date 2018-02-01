@@ -31,7 +31,7 @@ export class AppComponent {
   postGuide(title: string, description: string, imgurl: string) {
     this.dataService.postGuide(title, description, imgurl);
   }
-  deleteGuide(title: string, description: string, imgurl: string) {
-    this.dataService.deleteGuide(title, description, imgurl);
+  deleteGuide(id: number) {
+    this.dataService.deleteGuide(id);
   }
 }

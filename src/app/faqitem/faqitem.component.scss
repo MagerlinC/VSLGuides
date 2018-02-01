@@ -10,3 +10,17 @@ mat-panel-title {
 mat-expansion-panel-header {
   padding: 2vw;
 }
+
+mat-expansion-panel {
+  position: relative;
+}
+
+.mat-fab.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary.mat-raised-button.mat-primary {
+  background-color: #009CE3;
+}
+
+.options-button {
+  position: absolute;
+  top: 5%;
+  right: 1%;
+}

@@ -1,12 +1,11 @@
 $primary-font: 'Roboto', sans-serif;
-$primary-color: #009ee3;
+$primary-color: #009CE3;
 $side-nav-color: #FFFFFF;
 $side-nav-text-color: #000000;
 
 html {
   font-family: $primary-font;
 }
-
 
 .card-layout {
   display: grid;
@@ -17,6 +16,23 @@ mat-card-title {
   font-size: 2em;
 }
 
+.mat-form-field-underline {
+  position: absolute;
+  height: 1px;
+  width: 40% !important;
+}
+
+.mat-drawer-container {
+  background-color: white !important;
+}
+
+.mat-drawer-backdrop {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 mat-sidenav {
   color: $side-nav-text-color;
@@ -47,8 +63,19 @@ mat-sidenav-container {
   width: 4.5vw !important;
   min-width: 4.5vw !important;
 }
-.spacer {
 
+
+
+app-mobile-nav-icon {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  max-height: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 .sidenav-header img {
   display: block;
@@ -78,6 +105,11 @@ mat-sidenav-container {
   .mobile-bot-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+  .add-icon {
+    max-width: 25%;
+    bottom: 25%;
+    right: 25%;
   }
 }
 //Browser is wider than 640px

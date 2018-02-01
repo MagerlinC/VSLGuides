@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {DataService} from '../DataService';
 
 @Component({
   selector: 'app-faqitem',
@@ -10,7 +11,7 @@ export class FaqitemComponent implements OnInit {
   @Input() question;
   @Input() answer;
   isSelected;
-  constructor() {
+  constructor(private dataService: DataService) {
     this.isSelected = false;
   }
 
@@ -19,5 +20,9 @@ export class FaqitemComponent implements OnInit {
 
   showContents() {
     this.isSelected = true;
+  }
+
+  deleteFAQ() {
+    this.dataService.deleteFAQ(this.id);
   }
 }

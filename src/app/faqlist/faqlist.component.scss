@@ -1,9 +1,11 @@
 .item-list {
+  background: white;
   display: block;
   padding: 5vw 10vw 10vw 10vw;
 }
 
 .list-header-title {
+  background: white;
   font-size: 2em;
   padding: 2vw;
   color: #009CE3;
@@ -14,6 +16,15 @@ app-faqitem {
   padding: 2vw 0vw 2vw 0vw;
 }
 
+.add-icon {
+  cursor: pointer;
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+  width: auto;
+  height: auto;
+  max-width: 3%;
+}
 //Browser is between 0px and 640px wide
 @media screen and (max-width: 640px) {
   .item-list {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Guide} from '../Guide';
 import {DataService} from '../DataService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-guides',
@@ -9,7 +10,7 @@ import {DataService} from '../DataService';
 })
 export class GuidesComponent implements OnInit {
   guideList: Guide[];
-  constructor(private dataservice: DataService) {
+  constructor(private dataservice: DataService, private router: Router) {
     this.dataservice.getGuides().then((res) => {
       this.guideList = res;
     });
@@ -18,4 +19,7 @@ export class GuidesComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToAddGuide() {
+    this.router.navigate(['/new-guide']);
+  }
 }

@@ -38,23 +38,32 @@ export class DataService {
       });
   }
   postGuide(title: string, description: string, imgurl: string) {
-  const guide = {title: title, description: description, imgurl: imgurl};
-  return this.http.post(this.apiUrl + '/guide', guide).toPromise().then( (res) => {
+    console.log('Posting guide: ' + title + description + imgurl);
+    const guide = {title: title, description: description, imgurl: imgurl};
+    return this.http.post(this.apiUrl + '/guide', guide).toPromise().then( (res) => {
     console.log(res);
   },
     (err) => {
     console.log('Failed to post Guide');
     });
   }
-  deleteGuide(title: string, description: string, imgurl: string) {
-    const guide = {title: title, description: description, imgurl: imgurl};
-    // Delete by id?
-    /*return this.http.delete(this.apiUrl + '/guide', guide).toPromise().then( (res) => {
+  deleteGuide(id: number) {
+    // Delete by id
+    return this.http.delete(this.apiUrl + '/guide/' + id).toPromise().then( (res) => {
     console.log(res);
   },
     (err) => {
-    console.log('Failed to post Guide');
-    });*/
+    console.log('Failed to delete Guide: ' + err);
+    });
+  }
+  deleteFAQ(id: number) {
+    // Delete by id
+    return this.http.delete(this.apiUrl + '/FAQ/' + id).toPromise().then( (res) => {
+    console.log(res);
+  },
+    (err) => {
+    console.log('Failed to delete FAQ: ' + err);
+    });
   }
 }
 

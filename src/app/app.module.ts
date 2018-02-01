@@ -21,12 +21,21 @@ import { MobileNavIconComponent } from './mobile-nav-icon/mobile-nav-icon.compon
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { NewguideComponent } from './newguide/newguide.component';
+import { NewfaqComponent } from './newfaq/newfaq.component';
 
 const appRoutes: Routes = [
   { path: 'guides',
     component: GuidesComponent,
   },
   { path: 'FAQ', component: FaqlistComponent,
+  },
+  {
+    path: 'new-guide', component: NewguideComponent,
+  },
+  {
+    path: 'new-faq', component: NewfaqComponent,
   },
   { path: '',
     redirectTo: '/guides',
@@ -44,12 +53,15 @@ const appRoutes: Routes = [
     GuideComponent,
     FaqitemComponent,
     SidenavitemComponent,
-    MobileNavIconComponent
+    MobileNavIconComponent,
+    NewguideComponent,
+    NewfaqComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     MatCardModule,
+    MatButtonModule,
     MatSidenavModule,
     MatCheckboxModule,
     BrowserAnimationsModule,

@@ -15,6 +15,16 @@ $primary-font: 'Robot', sans-serif;
   max-width: 8vw;
 }
 
-mat-card-title {
+.mat-card-title {
   font-size: 1.8em;
+}
+
+.mat-fab.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary.mat-raised-button.mat-primary {
+  background-color: #009CE3;
+}
+
+.options-button {
+  position: absolute;
+  top: 5%;
+  right: 1%;
 }

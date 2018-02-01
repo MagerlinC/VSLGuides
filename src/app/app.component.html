@@ -11,12 +11,6 @@
         </app-sidenavitem>
         <app-sidenavitem (click)="goToFAQ(); sidenav.close();" [title]="'FAQ'" [iconPath]="'assets/discuss-issue.svg'">
         </app-sidenavitem>
-        <button mat-raised-button (click)="postFAQ('TestQ', 'TestA')">
-          CLICK ME TO POST TEST FAQ
-        </button>
-        <button mat-raised-button (click)="postGuide('TestTitle', 'TestDescription','')">
-          CLICK ME TO POST TEST GUIDE
-        </button>
       </div>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -25,11 +19,11 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
   <div class="mobile-bot-nav">
-    <a (click)="goToGuides()" class="mobilenavicon">
+    <a (click)="goToGuides()">
       <app-mobile-nav-icon [iconUrl]="'../assets/map.svg'" [selectorName]="'guides'">
       </app-mobile-nav-icon>
     </a>
-    <a (click)="goToFAQ()" class="mobilenavicon">
+    <a (click)="goToFAQ()">
       <app-mobile-nav-icon [iconUrl]="'../assets/discuss-issue.svg'" [selectorName]="'FAQ'">
       </app-mobile-nav-icon>
     </a>

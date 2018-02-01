@@ -1,11 +1,31 @@
 .item-list {
+  background: white;
   display: block;
   padding: 5vw 10vw 10vw 10vw;
 }
 
 .list-header-title {
+  background: white;
   font-size: 2em;
   color: #009CE3;
   padding: 2vw;
   font-weight: bold;
+}
+
+.add-icon {
+  cursor: pointer;
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+  width: auto;
+  height: auto;
+  max-width: 3%;
+}
+//Browser is between 0px and 640px wide
+@media screen and (max-width: 640px) {
+  .add-icon {
+    max-width: 8%;
+    bottom: 15%;
+    right: 5%;
+  }
 }

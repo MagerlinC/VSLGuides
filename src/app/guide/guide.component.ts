@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {DataService} from '../DataService';
 
 @Component({
   selector: 'app-guide',
@@ -10,9 +11,12 @@ export class GuideComponent implements OnInit {
   @Input() title;
   @Input() description;
   @Input() imgurl;
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
 
+  deleteGuide() {
+    this.dataService.deleteGuide(this.id);
+  }
 }
