@@ -10,6 +10,14 @@
       </mat-panel-description !-->
     </mat-expansion-panel-header>
     <p>{{answer}}</p>
-    <button mat-raised-button class="options-button" color="primary" (click)="deleteFAQ()">X</button>
+    <div class="col text-right">
+      <div ngbDropdown placement="top-right" class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle></button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+          <button class="dropdown-item">Edit</button>
+          <button class="dropdown-item" (click)="deleteFAQ()">Delete</button>
+        </div>
+      </div>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>

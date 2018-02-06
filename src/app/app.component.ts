@@ -25,13 +25,4 @@ export class AppComponent {
   goToFAQ() {
     this.router.navigate(['/FAQ']);
   }
-  postFAQ(question: string, answer: string) {
-    this.dataService.postFAQ(question, answer);
-  }
-  postGuide(title: string, description: string, imgurl: string) {
-    this.dataService.postGuide(title, description, imgurl);
-  }
-  deleteGuide(id: number) {
-    this.dataService.deleteGuide(id);
-  }
 }

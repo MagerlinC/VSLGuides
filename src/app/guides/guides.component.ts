@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Guide} from '../Guide';
 import {DataService} from '../DataService';
 import {Router} from '@angular/router';
 
@@ -9,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./guides.component.scss']
 })
 export class GuidesComponent implements OnInit {
-  guideList: Guide[];
+  guideList;
   constructor(private dataservice: DataService, private router: Router) {
     this.dataservice.getGuides().then((res) => {
       this.guideList = res;
@@ -17,6 +16,13 @@ export class GuidesComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+
+  updateGuides() {
+    this.dataservice.getGuides().then((res) => {
+      this.guideList = res;
+    });
   }
 
   goToAddGuide() {

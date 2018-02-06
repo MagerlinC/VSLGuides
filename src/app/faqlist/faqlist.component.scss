@@ -28,6 +28,7 @@ app-faqitem {
 //Browser is between 0px and 640px wide
 @media screen and (max-width: 640px) {
   .item-list {
+    margin-bottom: 5%;
     padding: 0vw !important;
   }
   .list-header-title {

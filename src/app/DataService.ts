@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Guide} from './Guide';
@@ -7,8 +7,7 @@ import {FAQ} from './FAQ';
 @Injectable()
 export class DataService {
   private apiUrl = 'http://localhost:49918/api';
-
-  constructor(private http: Http) {
+  constructor(private http: Http, private zone: NgZone) {
   }
   getGuides() {
      return this.http.get(this.apiUrl + '/guide').toPromise().then((res) => {
@@ -50,11 +49,12 @@ export class DataService {
   deleteGuide(id: number) {
     // Delete by id
     return this.http.delete(this.apiUrl + '/guide/' + id).toPromise().then( (res) => {
-    console.log(res);
-  },
-    (err) => {
-    console.log('Failed to delete Guide: ' + err);
+      console.log(res);
     });
+  }
+
+  updateGuide(oldGuideId: number, newTitle: string, newDescription: string) {
+    return this.http.put(this.apiUrl + '/guide/' + oldGuideId, {title: newTitle, description: newDescription});
   }
   deleteFAQ(id: number) {
     // Delete by id

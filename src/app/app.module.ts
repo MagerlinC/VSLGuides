@@ -15,7 +15,7 @@ import { DataService } from './DataService';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCheckboxModule } from '@angular/material';
+import {MatCheckboxModule, MatDialogRef} from '@angular/material';
 import { SidenavitemComponent } from './sidenavitem/sidenavitem.component';
 import { MobileNavIconComponent } from './mobile-nav-icon/mobile-nav-icon.component';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -24,6 +24,8 @@ import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { NewguideComponent } from './newguide/newguide.component';
 import { NewfaqComponent } from './newfaq/newfaq.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 const appRoutes: Routes = [
   { path: 'guides',
@@ -55,7 +57,7 @@ const appRoutes: Routes = [
     SidenavitemComponent,
     MobileNavIconComponent,
     NewguideComponent,
-    NewfaqComponent
+    NewfaqComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +70,8 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
+    MatSelectModule,
     HttpModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes,

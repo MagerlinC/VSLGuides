@@ -11,12 +11,22 @@ export class GuideComponent implements OnInit {
   @Input() title;
   @Input() description;
   @Input() imgurl;
+
+  editable = false;
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
 
+  setEditable(bool: boolean) {
+    this.editable = bool;
+  }
+
+  updateGuide(newTitle: string, newDescription: string) {
+    this.dataService.updateGuide(this.id, newTitle, newDescription);
+  }
   deleteGuide() {
     this.dataService.deleteGuide(this.id);
   }
 }
+
