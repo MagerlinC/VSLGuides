@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 })
 export class GuidesComponent implements OnInit {
   guideList;
+  pdfSrc = '../../assets/test.pdf';
   constructor(private dataservice: DataService, private router: Router) {
     this.dataservice.getGuides().then((res) => {
       this.guideList = res;
@@ -18,12 +19,6 @@ export class GuidesComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  updateGuides() {
-    this.dataservice.getGuides().then((res) => {
-      this.guideList = res;
-    });
-  }
 
   goToAddGuide() {
     this.router.navigate(['/new-guide']);

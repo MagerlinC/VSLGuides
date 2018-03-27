@@ -12,6 +12,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { GuideComponent } from './guide/guide.component';
 import { FaqitemComponent } from './faqitem/faqitem.component';
 import { DataService } from './DataService';
+import { GuideResolver } from './GuideResolver';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,10 +27,19 @@ import { NewguideComponent } from './newguide/newguide.component';
 import { NewfaqComponent } from './newfaq/newfaq.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import {PdfViewerModule} from 'ng2-pdf-viewer';
+import { GuideFullViewComponent } from './guide-full-view/guide-full-view.component';
 
 const appRoutes: Routes = [
   { path: 'guides',
     component: GuidesComponent,
+  },
+  {
+    path: 'guides/:id',
+    component: GuideFullViewComponent,
+    resolve: {
+      guide: GuideResolver
+    }
   },
   { path: 'FAQ', component: FaqlistComponent,
   },
@@ -58,9 +68,11 @@ const appRoutes: Routes = [
     MobileNavIconComponent,
     NewguideComponent,
     NewfaqComponent,
+    GuideFullViewComponent,
   ],
   imports: [
     BrowserModule,
+    PdfViewerModule,
     FormsModule,
     MatCardModule,
     MatButtonModule,
@@ -77,7 +89,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes,
       {enableTracing: true}) // <-- Debugging
   ],
-  providers: [DataService],
+  providers: [DataService, GuideResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

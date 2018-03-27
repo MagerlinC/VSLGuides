@@ -1,11 +1,12 @@
 export class Guide {
   static fromJson(json: any): Guide {
     return new Guide(
-      json.id,
+      json.GuideDTOId,
       json.title,
       json.description,
-      json.imgurl);
+      json.imgurl,
+      json.guideItems);
   }
 
-  constructor(public id: number, public title: string, public description: string, public imgurl: string) {}
+  constructor(public id: number, public title: string, public description: string, public imgurl: string, public guideItems) {}
 }

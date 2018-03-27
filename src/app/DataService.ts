@@ -3,6 +3,9 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Guide} from './Guide';
 import {FAQ} from './FAQ';
+import {GuideItem} from './GuideItem';
+import {Observable} from 'rxjs/Observable';
+
 
 @Injectable()
 export class DataService {
@@ -17,6 +20,27 @@ export class DataService {
        }
        return guides;
     });
+  }
+  getGuideItems() {
+    return this.http.get(this.apiUrl + '/guideItem').toPromise().then((res) => {
+      const guideItems: GuideItem[] = [];
+      for (const guideItemJson of res.json()) {
+        guideItems.push(GuideItem.fromJson(guideItemJson));
+      }
+      return guideItems;
+    });
+  }
+  getGuide(id: number): Observable<Response> {
+    return this.http.get(this.apiUrl + '/guide/' + id);
+  }
+  async getGuideItemsForGuide(id: number) {
+    const guideItems: GuideItem[] = [];
+    for (const guideItem of await this.getGuideItems()) {
+     if (guideItem.id === id) {
+       guideItems.push(guideItem);
+     }
+   }
+   return guideItems;
   }
   getFAQs() {
      return this.http.get(this.apiUrl + '/FAQ').toPromise().then((res) => {
@@ -46,7 +70,18 @@ export class DataService {
     console.log('Failed to post Guide');
     });
   }
+  postGuideItem(title: string, src: string, parentGuide: number) {
+    const guideItem  = {title: title, guideUrl: src, GuideDTORefId: parentGuide};
+    return this.http.post(this.apiUrl + '/guideitem', guideItem).toPromise().then( (res) => {
+      console.log(res);
+    },
+      (err) => {
+        console.log('Failed to post GuideItem');
+      });
+  }
+
   deleteGuide(id: number) {
+    console.log('Deleting guide with id: ' + id);
     // Delete by id
     return this.http.delete(this.apiUrl + '/guide/' + id).toPromise().then( (res) => {
       console.log(res);

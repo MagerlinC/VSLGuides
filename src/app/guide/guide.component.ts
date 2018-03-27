@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from '../DataService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-guide',
@@ -13,7 +14,7 @@ export class GuideComponent implements OnInit {
   @Input() imgurl;
 
   editable = false;
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,9 @@ export class GuideComponent implements OnInit {
   }
   deleteGuide() {
     this.dataService.deleteGuide(this.id);
+  }
+  goToFullView() {
+    this.router.navigate(['/guides/' + this.id]);
   }
 }
 

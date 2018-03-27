@@ -3,6 +3,9 @@ $primary-font: 'Robot', sans-serif;
 .guide-card {
 }
 
+.clickable-text {
+  cursor: pointer;
+}
 .card-layout {
   display: grid;
   grid-template-columns: 0.2fr 1fr;

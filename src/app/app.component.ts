@@ -1,8 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, Injectable} from '@angular/core';
 import { Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Router} from '@angular/router';
+import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {DataService} from './DataService';
+import {Guide} from './Guide';
+import {Observable} from 'rxjs/Observable';
+import {any} from 'codelyzer/util/function';
+import {state} from '@angular/core/src/animation/dsl';
+import {GuidesComponent} from './guides/guides.component';
+import {GuideFullViewComponent} from './guide-full-view/guide-full-view.component';
 
 
 @Component({
@@ -26,3 +32,5 @@ export class AppComponent {
     this.router.navigate(['/FAQ']);
   }
 }
+
+
