@@ -22,21 +22,28 @@ export class DataService {
     });
   }
   getGuideItems() {
-    return this.http.get(this.apiUrl + '/guideItem').toPromise().then((res) => {
-      const guideItems: GuideItem[] = [];
+    const guideItems: GuideItem[] = [];
+    return this.http.get(this.apiUrl + '/guideitem').toPromise().then((res) => {
       for (const guideItemJson of res.json()) {
+        console.log('##############');
+        console.log(GuideItem.fromJson(guideItemJson));
         guideItems.push(GuideItem.fromJson(guideItemJson));
       }
       return guideItems;
     });
+
   }
   getGuide(id: number): Observable<Response> {
     return this.http.get(this.apiUrl + '/guide/' + id);
   }
-  async getGuideItemsForGuide(id: number) {
+  async getGuideItemsForGuide(id: number): Promise<GuideItem[]> {
     const guideItems: GuideItem[] = [];
-    for (const guideItem of await this.getGuideItems()) {
-     if (guideItem.id === id) {
+    let allguideitems: GuideItem[] = [];
+    await this.getGuideItems().then((res) => {
+      allguideitems = (res);
+    });
+    for (const guideItem of allguideitems) {
+     if (guideItem.GuideDTORefId === id) {
        guideItems.push(guideItem);
      }
    }
@@ -87,7 +94,13 @@ export class DataService {
       console.log(res);
     });
   }
-
+  deleteGuideItem(id: number) {
+    console.log('Deleting guide with id: ' + id);
+    // Delete by id
+    return this.http.delete(this.apiUrl + '/guideitem/' + id).toPromise().then( (res) => {
+      console.log(res);
+    });
+  }
   updateGuide(oldGuideId: number, newTitle: string, newDescription: string) {
     return this.http.put(this.apiUrl + '/guide/' + oldGuideId, {title: newTitle, description: newDescription});
   }

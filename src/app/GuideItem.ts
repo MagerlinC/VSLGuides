@@ -3,9 +3,9 @@ export class GuideItem {
     return new GuideItem (
       json.GuideItemId,
       json.title,
-      json.pdfUrl,
-      json.guideRefId);
+      json.guideUrl,
+      json.GuideDTORefId);
   }
 
-  constructor(public id: number, public title: string, public pdfUrl: string, public guideRefId: number) {}
+  constructor(public id: number, public title: string, public pdfUrl: string, public GuideDTORefId: number) {}
 }

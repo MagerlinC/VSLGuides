@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {DataService} from '../DataService';
 import {Router} from '@angular/router';
+import {AddItemDialogComponent} from '../add-item-dialog/add-item-dialog.component';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-guide',
@@ -14,7 +16,7 @@ export class GuideComponent implements OnInit {
   @Input() imgurl;
 
   editable = false;
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -32,5 +34,24 @@ export class GuideComponent implements OnInit {
   goToFullView() {
     this.router.navigate(['/guides/' + this.id]);
   }
+  openAddItemDialog() {
+    const parentTitle = this.title;
+    let pdfsrc;
+    let title;
+
+
+    const dialogRef = this.dialog.open(AddItemDialogComponent, {
+      data: { ParentGuide: parentTitle, Source: pdfsrc, Title: title}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        pdfsrc = result.Source;
+        title = result.Title;
+        this.dataService.postGuideItem(title, pdfsrc, this.id);
+      }
+    });
+  }
 }
+
 

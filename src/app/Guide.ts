@@ -4,9 +4,8 @@ export class Guide {
       json.GuideDTOId,
       json.title,
       json.description,
-      json.imgurl,
-      json.guideItems);
+      json.imgurl);
   }
 
-  constructor(public id: number, public title: string, public description: string, public imgurl: string, public guideItems) {}
+  constructor(public id: number, public title: string, public description: string, public imgurl: string) {}
 }

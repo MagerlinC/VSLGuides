@@ -23,4 +23,7 @@ export class GuidesComponent implements OnInit {
   goToAddGuide() {
     this.router.navigate(['/new-guide']);
   }
+  guidesExist() {
+    return this.guideList && this.guideList.length > 0;
+  }
 }

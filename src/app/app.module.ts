@@ -14,6 +14,7 @@ import { FaqitemComponent } from './faqitem/faqitem.component';
 import { DataService } from './DataService';
 import { GuideResolver } from './GuideResolver';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule, MatDialogRef} from '@angular/material';
@@ -25,10 +26,12 @@ import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { NewguideComponent } from './newguide/newguide.component';
 import { NewfaqComponent } from './newfaq/newfaq.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import { GuideFullViewComponent } from './guide-full-view/guide-full-view.component';
+import {AddItemDialogComponent} from './add-item-dialog/add-item-dialog.component';
+import { IconPickerComponent } from './icon-picker/icon-picker.component';
+
 
 const appRoutes: Routes = [
   { path: 'guides',
@@ -69,6 +72,8 @@ const appRoutes: Routes = [
     NewguideComponent,
     NewfaqComponent,
     GuideFullViewComponent,
+    AddItemDialogComponent,
+    IconPickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +95,7 @@ const appRoutes: Routes = [
       {enableTracing: true}) // <-- Debugging
   ],
   providers: [DataService, GuideResolver],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddItemDialogComponent]
 })
 export class AppModule { }

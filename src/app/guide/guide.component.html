@@ -18,6 +18,7 @@
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <button class="dropdown-item">Edit</button>
             <button class="dropdown-item" (click)="deleteGuide()">Delete</button>
+            <button class="dropdown-item" (click)="openAddItemDialog()">Add Item</button>
           </div>
         </div>
       </div>
@@ -25,4 +26,15 @@
       <div class="grid-placerholder"></div>
     </div>
   </mat-card>
+
+
+  <!--mat-form-field class="example-full-width">
+    <input #titleInput1 matInput placeholder="PDF Title">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input #srcInput1 matInput placeholder="PDF Source">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input #refId matInput placeholder="Parent Guide of PDF">
+  </mat-form-field!-->
 
