@@ -1,7 +1,7 @@
 export class FAQ {
   static fromJson(json: any): FAQ {
     return new FAQ(
-      json.id,
+      json.FAQDTOid,
       json.question,
       json.answer);
   }

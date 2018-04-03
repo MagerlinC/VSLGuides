@@ -31,7 +31,7 @@ import {PdfViewerModule} from 'ng2-pdf-viewer';
 import { GuideFullViewComponent } from './guide-full-view/guide-full-view.component';
 import {AddItemDialogComponent} from './add-item-dialog/add-item-dialog.component';
 import { IconPickerComponent } from './icon-picker/icon-picker.component';
-
+import { IconPickerModule } from 'ngx-icon-picker';
 
 const appRoutes: Routes = [
   { path: 'guides',
@@ -89,6 +89,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
+    IconPickerModule,
     HttpModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes,
