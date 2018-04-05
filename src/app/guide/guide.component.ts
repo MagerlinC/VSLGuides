@@ -22,12 +22,10 @@ export class GuideComponent implements OnInit {
   ngOnInit() {
   }
 
-  setEditable(bool: boolean) {
-    this.editable = bool;
-  }
 
   updateGuide(newTitle: string, newDescription: string) {
     this.dataService.updateGuide(this.id, newTitle, newDescription);
+    this.editable = false;
   }
   deleteGuide() {
     this.shouldHide = true;

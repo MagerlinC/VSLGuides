@@ -14,13 +14,15 @@ import { FaqitemComponent } from './faqitem/faqitem.component';
 import { DataService } from './DataService';
 import { GuideResolver } from './GuideResolver';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule, MatDialogRef} from '@angular/material';
 import { SidenavitemComponent } from './sidenavitem/sidenavitem.component';
 import { MobileNavIconComponent } from './mobile-nav-icon/mobile-nav-icon.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatMenuModule} from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +34,7 @@ import { GuideFullViewComponent } from './guide-full-view/guide-full-view.compon
 import {AddItemDialogComponent} from './add-item-dialog/add-item-dialog.component';
 import { IconPickerComponent } from './icon-picker/icon-picker.component';
 import { IconPickerModule } from 'ngx-icon-picker';
+import { GuideItemComponent } from './guide-item/guide-item.component';
 
 const appRoutes: Routes = [
   { path: 'guides',
@@ -74,6 +77,7 @@ const appRoutes: Routes = [
     GuideFullViewComponent,
     AddItemDialogComponent,
     IconPickerComponent,
+    GuideItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +92,8 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
+    MatMenuModule,
+    MatIconModule,
     MatSelectModule,
     IconPickerModule,
     HttpModule,

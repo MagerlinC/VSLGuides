@@ -7,7 +7,7 @@
 .list-header-title {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   background: white;
   font-size: 2em;
   padding: 2vw;
@@ -51,6 +51,7 @@ app-faqitem {
     padding: 1vw !important;
   }
   .list-header-title {
+    justify-content: center;
     padding-bottom: 4vh;
   }
   .no-faqs {

@@ -86,7 +86,13 @@ export class DataService {
         console.log('Failed to post GuideItem');
       });
   }
-
+  updateGuide(oldGuideId: number, newTitle: string, newDescription: string) {
+    console.log('Updating guide with id: ' + oldGuideId);
+    const guideItem = {GuideDTOId: oldGuideId, title: newTitle, description: newDescription};
+    return this.http.put(this.apiUrl + '/guide/', guideItem).toPromise().then( (res) => {
+      console.log(res);
+    });
+  }
   deleteGuide(id: number) {
     console.log('Deleting guide with id: ' + id);
     // Delete by id
@@ -101,9 +107,7 @@ export class DataService {
       console.log(res);
     });
   }
-  updateGuide(oldGuideId: number, newTitle: string, newDescription: string) {
-    return this.http.put(this.apiUrl + '/guide/' + oldGuideId, {title: newTitle, description: newDescription});
-  }
+
   deleteFAQ(id: number) {
     // Delete by id
     return this.http.delete(this.apiUrl + '/FAQ/' + id).toPromise().then( (res) => {
