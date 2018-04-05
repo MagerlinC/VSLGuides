@@ -11,6 +11,7 @@ export class FaqitemComponent implements OnInit {
   @Input() question;
   @Input() answer;
   isSelected;
+  shouldHide = false;
   constructor(private dataService: DataService) {
     this.isSelected = false;
   }
@@ -23,6 +24,7 @@ export class FaqitemComponent implements OnInit {
   }
 
   deleteFAQ() {
+    this.shouldHide = true;
     this.dataService.deleteFAQ(this.id);
   }
 }

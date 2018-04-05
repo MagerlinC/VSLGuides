@@ -22,4 +22,7 @@ export class FaqlistComponent implements OnInit {
   goToAddFAQ() {
     this.router.navigate(['/new-faq']);
   }
+  faqsExist() {
+    return this.faqList && this.faqList.length > 0;
+  }
 }

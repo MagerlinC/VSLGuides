@@ -18,7 +18,9 @@ mat-expansion-panel {
 .mat-fab.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary.mat-raised-button.mat-primary {
   background-color: #009CE3;
 }
-
+.question {
+  margin-top: 4%;
+}
 .img-wrapper {
   display: grid;
   grid-template-columns: 1fr 0.2fr;
@@ -27,6 +29,12 @@ mat-expansion-panel {
   height: 100%;
   max-height: 100%;
   max-width: 100%;
+}
+
+.title-line {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  grid-column-gap: 10%;
 }
 
 .dropdown-menu {
@@ -41,6 +49,19 @@ mat-expansion-panel {
 .btn-outline-primary, .primary.dropdown-toggle {
   color: #009CE3 !important;
   border: none !important;
+}
+
+.delete-button {
+  padding-top: 2%;
+  cursor: pointer;
+  max-width: 25%;
+  height: auto;
+}
+
+.deletion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .options-button {

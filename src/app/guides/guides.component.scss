@@ -31,11 +31,23 @@
 //Browser is between 0px and 640px wide
 @media screen and (max-width: 640px) {
   .add-icon {
-    max-width: 8%;
+    max-width: 10%;
     bottom: 15%;
     right: 5%;
   }
+  .list-header-title {
+    text-align: center !important;
+    font-size: 2.5em;
+    color: white;
+    background-color: #009CE3;
+  }
   .item-list {
+    padding-top: 15%;
     margin-bottom: 5%;
   }
-}
+  .no-guides {
+    top: 40%;
+    left: 8%;
+  }}
+
+//#009CE3

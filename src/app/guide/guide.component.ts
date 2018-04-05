@@ -16,6 +16,7 @@ export class GuideComponent implements OnInit {
   @Input() imgurl;
 
   editable = false;
+  shouldHide = false;
   constructor(private dataService: DataService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -29,6 +30,7 @@ export class GuideComponent implements OnInit {
     this.dataService.updateGuide(this.id, newTitle, newDescription);
   }
   deleteGuide() {
+    this.shouldHide = true;
     this.dataService.deleteGuide(this.id);
   }
   goToFullView() {
@@ -49,6 +51,7 @@ export class GuideComponent implements OnInit {
         pdfsrc = result.Source;
         title = result.Title;
         this.dataService.postGuideItem(title, pdfsrc, this.id);
+        this.router.navigate(['/guides/' + this.id]);
       }
     });
   }

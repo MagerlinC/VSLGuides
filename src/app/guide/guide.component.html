@@ -1,4 +1,4 @@
-  <mat-card class="example-card">
+  <mat-card class="example-card" *ngIf="!shouldHide">
     <div class="card-layout">
       <img class="guide-icon" src="{{imgurl}}">
       <div class="card-contents">
@@ -26,15 +26,4 @@
       <div class="grid-placerholder"></div>
     </div>
   </mat-card>
-
-
-  <!--mat-form-field class="example-full-width">
-    <input #titleInput1 matInput placeholder="PDF Title">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input #srcInput1 matInput placeholder="PDF Source">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input #refId matInput placeholder="Parent Guide of PDF">
-  </mat-form-field!-->
 

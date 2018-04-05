@@ -1,4 +1,9 @@
-<div class="list-header-title">FAQ</div>
+<p class="list-header-title">FAQ</p>
+
+<div *ngIf="!faqsExist()" class="no-faqs">
+  <h1>No FAQs yet? Create one below...</h1>
+</div>
+
 <div class="item-list">
   <div *ngFor="let faq of faqList">
     <app-faqitem [id]="faq.id"
