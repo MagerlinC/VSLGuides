@@ -11,6 +11,13 @@ $primary-font: 'Robot', sans-serif;
   grid-template-columns: 0.2fr 1fr;
 }
 
+example-form {
+  background: white;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
 .example-card {
   width: 100%;
   max-width: 100%;

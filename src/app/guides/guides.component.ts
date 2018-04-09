@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../DataService';
+import {APIDataService} from '../APIDataService';
 import {Router} from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class GuidesComponent implements OnInit {
   guideList;
   pdfSrc = '../../assets/test.pdf';
-  constructor(private dataservice: DataService, private router: Router) {
+  constructor(private dataservice: APIDataService, private router: Router) {
     this.dataservice.getGuides().then((res) => {
       this.guideList = res;
     });

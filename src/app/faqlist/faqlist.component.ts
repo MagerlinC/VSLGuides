@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FAQ} from '../FAQ';
-import {DataService} from '../DataService';
+import {APIDataService} from '../APIDataService';
 import {Router} from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class FaqlistComponent implements OnInit {
   faqList: FAQ[];
-  constructor(private dataservice: DataService, private router: Router) {
+  constructor(private dataservice: APIDataService, private router: Router) {
     this.dataservice.getFAQs().then((res) => {
       this.faqList = res;
     });

@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Observable';
 
 
 @Injectable()
-export class DataService {
+export class APIDataService {
   private apiUrl = 'http://localhost:49918/api';
   constructor(private http: Http, private zone: NgZone) {
   }
@@ -93,10 +93,10 @@ export class DataService {
       console.log(res);
     });
   }
-  deleteGuide(id: number) {
+  async deleteGuide(id: number) {
     console.log('Deleting guide with id: ' + id);
     // Delete by id
-    return this.http.delete(this.apiUrl + '/guide/' + id).toPromise().then( (res) => {
+    return await this.http.delete(this.apiUrl + '/guide/' + id).toPromise().then( (res) => {
       console.log(res);
     });
   }

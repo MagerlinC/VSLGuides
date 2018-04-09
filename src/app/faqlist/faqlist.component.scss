@@ -1,18 +1,8 @@
+$primary-color: #009DE0;
 .item-list {
   background: white;
   display: block;
-  padding: 5vw 10vw 10vw 10vw;
-}
-
-.list-header-title {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  background: white;
-  font-size: 2em;
-  padding: 2vw;
-  color: #009CE3;
-  font-weight: bold;
+  padding: 12vh 10vw 10vw 10vw;
 }
 
 app-faqitem {
@@ -33,6 +23,22 @@ app-faqitem {
   height: auto;
   max-width: 3%;
 }
+//Browser is between 0px and 768px wide
+@media screen and (max-width: 768px) {
+  .add-icon {
+    max-width: 8%;
+    bottom: 7%;
+    right: 4%;
+  }
+  .item-list {
+    padding: 15% 1vw 1vw 1vw;
+    margin-bottom: 5%;
+  }
+  .no-faqs {
+    top: 40%;
+    left: 8%;
+  }
+}
 //Browser is between 0px and 640px wide
 @media screen and (max-width: 640px) {
   .add-icon {
@@ -40,22 +46,7 @@ app-faqitem {
     bottom: 15%;
     right: 5%;
   }
-  .list-header-title {
-    text-align: center !important;
-    font-size: 2.5em;
-    color: white;
-    background-color: #009CE3;
-  }
   .item-list {
-    margin-bottom: 5%;
-    padding: 1vw !important;
-  }
-  .list-header-title {
-    justify-content: center;
-    padding-bottom: 4vh;
-  }
-  .no-faqs {
-    top: 40%;
-    left: 8%;
+    padding-top: 20%;
   }
 }

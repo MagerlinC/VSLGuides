@@ -2,7 +2,7 @@ import {Component, Injectable} from '@angular/core';
 import { Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
-import {DataService} from './DataService';
+import {APIDataService} from './APIDataService';
 import {Guide} from './Guide';
 import {Observable} from 'rxjs/Observable';
 import {any} from 'codelyzer/util/function';
@@ -19,7 +19,7 @@ import {GuideFullViewComponent} from './guide-full-view/guide-full-view.componen
 export class AppComponent {
   title = 'VSLGuides';
   events = [];
-  constructor(private dataService: DataService, private http: Http, private router: Router) {
+  constructor(private dataService: APIDataService, private http: Http, private router: Router) {
   }
 
   goHome() {

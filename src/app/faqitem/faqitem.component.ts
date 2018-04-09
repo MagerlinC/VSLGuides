@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DataService} from '../DataService';
+import {APIDataService} from '../APIDataService';
 
 @Component({
   selector: 'app-faqitem',
@@ -12,7 +12,7 @@ export class FaqitemComponent implements OnInit {
   @Input() answer;
   isSelected;
   shouldHide = false;
-  constructor(private dataService: DataService) {
+  constructor(private dataService: APIDataService) {
     this.isSelected = false;
   }
 

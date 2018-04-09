@@ -1,11 +1,11 @@
-<div class="list-header-title">Guides</div>
+<app-list-header [title]="'Guides'"></app-list-header>
 
 <div *ngIf="!guidesExist()" class="no-guides">
   <h1>No guides yet? Create one below...</h1>
 </div>
 <div class="item-list">
   <div *ngFor="let guide of guideList">
-    <app-guide [id]="guide.id"
+    <app-guide *ngIf="!guide.shouldHide" [id]="guide.id"
       [title]="guide.title"
       [description]="guide.description"
       [imgurl]="guide.imgurl"

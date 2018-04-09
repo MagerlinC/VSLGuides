@@ -1,5 +1,6 @@
 $primary-font: 'Roboto', sans-serif;
-$primary-color: #009CE3;
+$primary-color: #009DE0;
+
 $side-nav-color: #FFFFFF;
 $side-nav-text-color: #000000;
 
@@ -47,10 +48,12 @@ mat-sidenav-container {
 
 }
 
-.ramlogo {
-  padding: 2vw;
-  height: auto;
-  width: 75%;
+
+.list-header {
+  text-align: center;
+  min-width: 15%;
+  font-size: 2em;
+  padding: 10%;
 }
 
 .sidenav-hover {
@@ -94,8 +97,8 @@ app-mobile-nav-icon {
   background-color: $primary-color;
 }
 
-//Browser is between 0px and 640px wide
-@media screen and (max-width: 640px) {
+//Browser is between 0px and 768px wide
+@media screen and (max-width: 768px) {
   mat-sidenav {
     display:none;
   }

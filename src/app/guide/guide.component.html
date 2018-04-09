@@ -1,26 +1,28 @@
-<mat-card class="example-card" *ngIf="!shouldHide">
+<mat-card class="example-card" *ngIf="!shouldHide" >
   <div class="card-layout">
-    <img class="guide-icon" src="{{imgurl}}">
+    <img class="guide-icon" src="{{imgurl}}" (click)="goToFullView()">
     <div class="card-contents">
       <mat-card-header>
         <mat-card-title >
           <p class="clickable-text" (click)="goToFullView()" *ngIf="!editable">{{title}}</p>
 
-          <mat-form-field *ngIf="editable" class="example-full-width">
-            <input #titleInput matInput type="text" placeholder="New Title" value="{{title}}">
-          </mat-form-field>
+
 
         </mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
-        <p *ngIf="!editable" class="description">{{description}}</p>
-
-        <mat-form-field *ngIf="editable" class="example-full-width">
-          <input #descInput matInput type="text" placeholder="New Description" value="{{description}}">
-        </mat-form-field>
+        <p *ngIf="!editable" class="description" (click)="goToFullView()">{{description}}</p>
       </mat-card-content>
-      <button mat-raised-button *ngIf="editable" (click)="updateGuide('title worked', 'desc worked')">Submit</button>
+      <div class="edit-section"*ngIf="editable">
+        <mat-form-field class="example-full-width">
+          <input #titleInput matInput type="text" placeholder="New Title" value="{{title}}" (keydown.enter)="updateGuide(titleInput.value, descInput.value)">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input #descInput matInput type="text" placeholder="New Description" value="{{description}}" (keydown.enter)="updateGuide(titleInput.value, descInput.value)">
+        </mat-form-field>
+        <button mat-raised-button  (click)="updateGuide(titleInput.value, descInput.value)">Submit</button>
+      </div>
     </div>
   </div>
 
@@ -31,7 +33,7 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="deleteGuide()">
+        <button mat-menu-item (click)="openDeleteConfirmationDiallog()">
           <mat-icon>delete</mat-icon>
           <span>Delete</span>
         </button>

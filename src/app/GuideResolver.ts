@@ -5,12 +5,12 @@ import { Observable } from 'rxjs/Observable';
 import { Router, Resolve, RouterStateSnapshot,
   ActivatedRouteSnapshot } from '@angular/router';
 import {Guide} from './Guide';
-import {DataService} from './DataService';
+import {APIDataService} from './APIDataService';
 
 
 @Injectable()
 export class GuideResolver implements Resolve<any> {
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: APIDataService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const id = route.paramMap.get('id');

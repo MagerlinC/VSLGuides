@@ -1,8 +1,9 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
-import {DataService} from '../DataService';
+import {APIDataService} from '../APIDataService';
 import {Router} from '@angular/router';
 import {AddItemDialogComponent} from '../add-item-dialog/add-item-dialog.component';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import {ConfirmDeletionDialogComponent} from '../confirm-deletion-dialog/confirm-deletion-dialog.component';
 
 @Component({
   selector: 'app-guide',
@@ -17,19 +18,28 @@ export class GuideComponent implements OnInit {
 
   editable = false;
   shouldHide = false;
-  constructor(private dataService: DataService, private router: Router, public dialog: MatDialog) { }
+  constructor(private dataService: APIDataService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
 
   updateGuide(newTitle: string, newDescription: string) {
-    this.dataService.updateGuide(this.id, newTitle, newDescription);
-    this.editable = false;
+    if (this.validUpdate(newTitle, newDescription)) {
+      this.dataService.updateGuide(this.id, newTitle, newDescription);
+      this.title = newTitle;
+      this.description = newDescription;
+      this.editable = false;
+    } else {
+      (console.log('Empty update requested'));
+    }
   }
-  deleteGuide() {
+  validUpdate(newTitle, newDescription) {
+    return (newTitle && newDescription && (this.title !== newTitle || this.description !== newDescription));
+  }
+  async deleteGuide() {
     this.shouldHide = true;
-    this.dataService.deleteGuide(this.id);
+    await this.dataService.deleteGuide(this.id);
   }
   goToFullView() {
     this.router.navigate(['/guides/' + this.id]);
@@ -49,7 +59,18 @@ export class GuideComponent implements OnInit {
         pdfsrc = result.Source;
         title = result.Title;
         this.dataService.postGuideItem(title, pdfsrc, this.id);
-        this.router.navigate(['/guides/' + this.id]);
+      }
+    });
+  }
+  openDeleteConfirmationDiallog() {
+    const dialogRef = this.dialog.open(ConfirmDeletionDialogComponent, {
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteGuide();
+        this.router.navigate(['/guides/']);
       }
     });
   }

@@ -11,9 +11,10 @@ import { FaqlistComponent } from './faqlist/faqlist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { GuideComponent } from './guide/guide.component';
 import { FaqitemComponent } from './faqitem/faqitem.component';
-import { DataService } from './DataService';
+import { APIDataService } from './APIDataService';
 import { GuideResolver } from './GuideResolver';
 import { MatCardModule } from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -35,6 +36,8 @@ import {AddItemDialogComponent} from './add-item-dialog/add-item-dialog.componen
 import { IconPickerComponent } from './icon-picker/icon-picker.component';
 import { IconPickerModule } from 'ngx-icon-picker';
 import { GuideItemComponent } from './guide-item/guide-item.component';
+import { ConfirmDeletionDialogComponent } from './confirm-deletion-dialog/confirm-deletion-dialog.component';
+import { ListHeaderComponent } from './list-header/list-header.component';
 
 const appRoutes: Routes = [
   { path: 'guides',
@@ -78,6 +81,8 @@ const appRoutes: Routes = [
     AddItemDialogComponent,
     IconPickerComponent,
     GuideItemComponent,
+    ConfirmDeletionDialogComponent,
+    ListHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +99,7 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
+    MatToolbarModule,
     MatSelectModule,
     IconPickerModule,
     HttpModule,
@@ -101,8 +107,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes,
       {enableTracing: true}) // <-- Debugging
   ],
-  providers: [DataService, GuideResolver],
+  providers: [APIDataService, GuideResolver],
   bootstrap: [AppComponent],
-  entryComponents: [AddItemDialogComponent]
+  entryComponents: [AddItemDialogComponent, ConfirmDeletionDialogComponent]
 })
 export class AppModule { }

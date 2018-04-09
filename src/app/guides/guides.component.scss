@@ -1,7 +1,8 @@
+$primary-color: #009DE0;
 .item-list {
   background: white;
   display: block;
-  padding: 5vw 10vw 10vw 10vw;
+  padding: 12vh 10vw 10vw 10vw;
 }
 
 .no-guides {
@@ -11,13 +12,6 @@
   color: lightgrey;
 }
 
-.list-header-title {
-  background: white;
-  font-size: 2em;
-  color: #009CE3;
-  padding: 2vw;
-  font-weight: bold;
-}
 
 .add-icon {
   cursor: pointer;
@@ -28,19 +22,14 @@
   height: auto;
   max-width: 3%;
 }
-//Browser is between 0px and 640px wide
-@media screen and (max-width: 640px) {
+//Browser is between 0px and 768px wide
+@media screen and (max-width: 768px) {
   .add-icon {
-    max-width: 10%;
-    bottom: 15%;
-    right: 5%;
+    max-width: 8%;
+    bottom: 7%;
+    right: 4%;
   }
-  .list-header-title {
-    text-align: center !important;
-    font-size: 2.5em;
-    color: white;
-    background-color: #009CE3;
-  }
+
   .item-list {
     padding-top: 15%;
     margin-bottom: 5%;
@@ -48,6 +37,14 @@
   .no-guides {
     top: 40%;
     left: 8%;
-  }}
+  }
+}
+//Browser is between 0px and 640px wide
+@media screen and (max-width: 640px) {
+  .add-icon {
+    max-width: 10%;
+    bottom: 15%;
+    right: 5%;
+  }
+}
 
-//#009CE3
