@@ -1,0 +1,20 @@
+<div class="list-header-title">ADD SECTION TO GUIDE </div>
+<div class="input-area">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input #titleInput matInput placeholder="Title">
+    </mat-form-field>
+    <!--input type="file" ng2FileSelect [uploader]="uploader"/ !-->
+    <input type="file" #file (change)="fileChange($event)" placeholder="Upload file" accept=".pdf">
+  </form>
+  <span class="spacer"></span>
+
+</div>
+
+<!--button type="button" class="btn btn-success btn-s"
+        (click)="uploader.uploadAll(); goBack();" [disabled]="!uploader.getNotUploadedItems().length">
+  <span class="glyphicon glyphicon-upload"></span> Upload File
+</button!-->
+
+<button mat-raised-button color="primary" class="add-button" (click)="submitGuideItem(titleInput.value)" [disabled]="!pdf || !titleInput.value">Upload Section to Guide</button>
+<img class="back-icon" src="../../assets/cancel.svg" (click)="goBack()"/>

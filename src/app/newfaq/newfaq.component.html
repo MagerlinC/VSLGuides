@@ -1,0 +1,14 @@
+<div class="list-header-title">ADD FAQ</div>
+<div class="input-area">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input #questionInput matInput placeholder="Question">
+    </mat-form-field>
+  </form>
+  <mat-form-field>
+    <textarea class="description-area" #answerInput matInput placeholder="Answer" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="5"></textarea>
+  </mat-form-field>
+</div>
+<button mat-raised-button color="primary" class="add-button" (click)="addNewFAQ(questionInput.value, answerInput.value)">Upload FAQ</button>
+<img class="back-icon" src="../../assets/cancel.svg" (click)="goBack()"/>

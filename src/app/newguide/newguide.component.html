@@ -1,0 +1,19 @@
+<div class="list-header-title">ADD GUIDE</div>
+<div class="input-area">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input #titleInput matInput placeholder="Title">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input #imgurlInput matInput placeholder="Icon URL">
+    </mat-form-field>
+  </form>
+  <mat-form-field>
+    <textarea #descriptionInput matInput placeholder="Description" matTextareaAutosize matAutosizeMinRows="2"
+               matAutosizeMaxRows="5"></textarea>
+  </mat-form-field>
+  <span class="spacer"></span>
+
+</div>
+<button mat-raised-button color="primary" class="add-button" (click)="addNewGuide(titleInput.value, descriptionInput.value, imgurlInput.value)">Upload Guide</button>
+<img class="back-icon" src="../../assets/cancel.svg" (click)="goBack()"/>

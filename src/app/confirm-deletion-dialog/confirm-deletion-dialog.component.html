@@ -1,0 +1,8 @@
+
+
+<h1 mat-dialog-title>Delete guide {{data.ParentGuide}}?</h1>
+<mat-dialog-content>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Delete</button>
+</mat-dialog-content>
+

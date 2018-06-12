@@ -1,0 +1,144 @@
+$primary-font: 'Robot', sans-serif;
+
+.guide-card {
+}
+
+.clickable-text {
+  cursor: pointer;
+}
+.card-layout {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
+mat-panel-title {
+  font-size: 1.2em;
+}
+.example-card {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+}
+
+.mat-expansion-panel-header-description {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr;
+  grid-row-gap: 55%;
+}
+.list-header-title {
+  background: white;
+  font-size: 2em;
+  color: #009CE3;
+  padding: 2vw;
+  font-weight: bold;
+}
+.dropdown-menu {
+  min-width: 4rem !important;
+}
+
+.mat-input-underline mat-form-field-underline {
+  width: 0% !important;
+  display: none;
+}
+
+.btn-outline-primary, .primary.dropdown-toggle {
+  color: #009CE3 !important;
+  border: none !important;
+}
+.img-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  grid-template-rows: 0.2fr 1fr;
+  align-content: center;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+}
+.item-list {
+  background: white;
+  display: block;
+  padding: 5vw 10vw 10vw 10vw;
+}
+
+.guide-icon {
+  height: auto;
+  width: auto;
+  max-width: 8vw;
+}
+
+.mat-card-title {
+  font-size: 1.8em;
+}
+
+.guide-item-title {
+  margin-top: 1rem;
+  font-size: 1em;
+}
+
+.dropdown-menu {
+  min-width: 4rem !important;
+}
+
+p.expand-text {
+  margin-top: 1rem;
+}
+
+.mat-fab.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary.mat-raised-button.mat-primary {
+  background-color: #009CE3;
+}
+.mat-input-underline mat-form-field-underline {
+  width: 0% !important;
+  display: none;
+}
+
+.btn-outline-primary, .primary.dropdown-toggle {
+  color: #009CE3 !important;
+  border: none !important;
+}
+
+.options-button {
+  cursor: pointer;
+  align-self: center;
+  justify-self: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  opacity: 0.6;
+}
+.delete-button {
+  padding: 5%;
+  cursor: pointer;
+  max-width: 25%;
+  height: auto;
+}
+.deletion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  mat-panel-title {
+    font-size: 1em;
+    margin: 0px;
+  }
+
+  .delete-button {
+    max-width: 35%;
+  }
+  mat-expansion-panel {
+    padding-top: 4%;
+  }
+  .mat-expansion-panel-header-description[_ngcontent-c5] {
+    padding-left: 2%;
+  }
+  .expand-text {
+    font-size: 0.8em;
+  }
+  .list-header-title {
+    text-align: center !important;
+    font-size: 2.5em;
+    color: white;
+    background-color: #009CE3;
+  }
+}

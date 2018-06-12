@@ -1,0 +1,18 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row class="header-row">
+    <div class="row">
+      <div ngbDropdown class="d-inline-block">
+        <div class="list-header-title-mobile">{{title}}</div>
+        <button mat-button class="list-header-title" id="dropdownBasic1" ngbDropdownToggle>
+          {{title}}
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button mat-button class="dropdown-button" (click)="goToGuides()">Guides</button>
+          <button mat-button class="dropdown-button" (click)="goToFAQ()">FAQ</button>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+  <img src="../../assets/RamLogo_White.svg" class="logo">
+</mat-toolbar>
+

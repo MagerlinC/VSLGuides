@@ -1,0 +1,24 @@
+<mat-card  *ngIf="!shouldHide"
+           [@cardAnimator]="animationState"
+           (@cardAnimator.done)="resetAnimationState()"
+           (swiperight)="startAnimation('slideOutRight')"
+           class="mat-card-no-border">
+  <app-list-header [title]="'Overview'"></app-list-header>
+  <div class="item-list">
+    <app-guide [id]="parent.id"
+               [title]="parent.title"
+               [description]="parent.description"
+               [imgurl]="parent.imgurl"
+    >
+    </app-guide>
+
+
+    <div *ngFor="let guideItem of guideItems">
+      <app-guide-item
+        [id]="guideItem.id"
+        [title]="guideItem.title"
+        [pdfUrl]="'../../assets/test.pdf'">
+      </app-guide-item>
+    </div>
+  </div>
+</mat-card>

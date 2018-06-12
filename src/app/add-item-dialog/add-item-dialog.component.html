@@ -1,0 +1,19 @@
+
+
+<h1 mat-dialog-title>Add Item to {{data.ParentGuide}}</h1>
+<mat-dialog-content>
+<div mat-dialog-content>
+  <p class="input-header">Title of File</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.Title">
+  </mat-form-field>
+  <p class="input-header">Source to File</p>
+
+    <!--input matInput [(ngModel)]="data.Source"!-->
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>
+</mat-dialog-content>
+

@@ -1,16 +1,21 @@
 <html>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-      <router-outlet >
-      </router-outlet>
-  <div class="mobile-bot-nav">
-    <a (click)="goToGuides()">
-      <app-mobile-nav-icon [iconUrl]="'../assets/map.svg'" [selectorName]="'guides'">
-      </app-mobile-nav-icon>
-    </a>
-    <a (click)="goToFAQ()">
-      <app-mobile-nav-icon [iconUrl]="'../assets/discuss-issue.svg'" [selectorName]="'FAQ'">
-      </app-mobile-nav-icon>
-    </a>
-  </div>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+  </li>
+</ul>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<router-outlet >
+</router-outlet>
+<div class="mobile-bot-nav">
+  <a (click)="goToGuides()">
+    <app-mobile-nav-icon [iconUrl]="'../assets/map.svg'" [selectorName]="'guides'">
+    </app-mobile-nav-icon>
+  </a>
+  <a (click)="goToFAQ()">
+    <app-mobile-nav-icon [iconUrl]="'../assets/discuss-issue.svg'" [selectorName]="'FAQ'">
+    </app-mobile-nav-icon>
+  </a>
+</div>
 </html>

@@ -1,0 +1,25 @@
+<mat-card  *ngIf="!shouldHide">
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'">
+          <mat-panel-title>
+            <p class="guide-item-title">{{title}}</p>
+          </mat-panel-title>
+          <mat-panel-description>
+            <p class="expand-text">Click to expand</p>
+            <div class="deletion">
+              <img src="../../assets/rubbish-bin.svg" class="delete-button" (click)="openDeleteConfirmationDialog()">
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!--pdf-viewer [src]="pdfUrl"
+                    [render-text]="true"
+                    [original-size]="false"
+                    style="display: block;">
+        </pdf-viewer!-->
+        <object data="pdfUrl"></object>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

@@ -38,6 +38,12 @@ import { IconPickerModule } from 'ngx-icon-picker';
 import { GuideItemComponent } from './guide-item/guide-item.component';
 import { ConfirmDeletionDialogComponent } from './confirm-deletion-dialog/confirm-deletion-dialog.component';
 import { ListHeaderComponent } from './list-header/list-header.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage'
+import { environment } from '../environments/environment';
+import { NewguideitemComponent } from './newguideitem/newguideitem.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 const appRoutes: Routes = [
   { path: 'guides',
@@ -46,6 +52,13 @@ const appRoutes: Routes = [
   {
     path: 'guides/:id',
     component: GuideFullViewComponent,
+    resolve: {
+      guide: GuideResolver
+    }
+  },
+  {
+    path: 'guides/:id/new-guide',
+    component: NewguideitemComponent,
     resolve: {
       guide: GuideResolver
     }
@@ -83,9 +96,14 @@ const appRoutes: Routes = [
     GuideItemComponent,
     ConfirmDeletionDialogComponent,
     ListHeaderComponent,
+    NewguideitemComponent,
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
     BrowserModule,
+    FileUploadModule,
     PdfViewerModule,
     FormsModule,
     MatCardModule,

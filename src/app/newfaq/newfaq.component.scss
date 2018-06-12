@@ -1,0 +1,65 @@
+.list-header-title {
+  background: white;
+  font-size: 2em;
+  color: #009CE3;
+  padding: 2vw;
+  font-weight: bold;
+}
+
+.input-area {
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+textarea {
+  background: white;
+}
+
+.example-form {
+  background: white;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.back-icon {
+  cursor: pointer;
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+  width: auto;
+  height: auto;
+  max-width: 3%;
+}
+.example-full-width {
+  width: 100%;
+}
+.mat-fab.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary.mat-raised-button.mat-primary {
+  background-color: #009CE3;
+}
+
+.add-button {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10%;
+  min-width: 20%;
+  margin-left: 5%;
+}
+
+.input-area {
+  display: grid;
+  grid-template-columns: 0.6fr;
+}
+mat-form-field {
+  background: white;
+}
+@media screen and (max-width: 768px) {
+  .back-icon {
+    cursor: pointer;
+    position: fixed;
+    bottom: 15%;
+    right: 4%;
+    width: auto;
+    height: auto;
+    max-width: 10%;
+  }
+}

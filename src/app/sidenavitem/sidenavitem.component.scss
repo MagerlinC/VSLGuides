@@ -1,0 +1,20 @@
+.sidenav-item-contents {
+  padding-bottom: 5%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.sidenav-icon {
+  height: auto;
+  width: auto;
+  max-width: 2.5vw;
+  padding: 1vw;
+}
+.sidenav-item-title {
+  padding-top: 1.5vw;
+  font-size: 1.5em;
+}
+.sidenav-item-title:hover {
+  //text-decoration: underline;
+  cursor: pointer;
+}
