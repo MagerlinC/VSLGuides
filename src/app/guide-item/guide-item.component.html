@@ -13,12 +13,11 @@
             </div>
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <!--pdf-viewer [src]="pdfUrl"
+        <pdf-viewer [src]="getPDFUrl()"
                     [render-text]="true"
                     [original-size]="false"
                     style="display: block;">
-        </pdf-viewer!-->
-        <object data="pdfUrl"></object>
+        </pdf-viewer>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card-content>

@@ -9,8 +9,13 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class APIDataService {
-  private apiUrl = 'http://localhost:49918/api';
+  public apiUrl = 'http://localhost:49918/api';
+  private guideItems: GuideItem[] = [];
+  private isAdmin = false;
   constructor(private http: Http, private zone: NgZone) {
+    this.getGuideItems().then(res => {
+      this.guideItems = res;
+    });
   }
   getGuides() {
     return this.http.get(this.apiUrl + '/guide').toPromise().then((res) => {
@@ -24,19 +29,35 @@ export class APIDataService {
   getGuide(id: number): Observable<Response> {
     return this.http.get(this.apiUrl + '/guide/' + id);
   }
-
-  async getGuideItemsForGuide(id: number)  {
-    const guideItems = [];
-    return this.http.get(this.apiUrl + '/guideitem/' + id, {responseType: ResponseContentType.Blob}).toPromise().then((res) => {
-      console.log(res.blob());
-      return new Blob([res.blob()], {type: 'application/pdf'});
+  getGuideItems() {
+    return this.http.get(this.apiUrl + '/guideitem').toPromise().then((res) => {
+      const guideItems: GuideItem[] = [];
+      for (const guideJson of res.json()) {
+        guideItems.push(GuideItem.fromJson(guideJson));
+      }
+      return guideItems;
     });
   }
+  getGuideItem(id: number) {
+    return this.http.get(this.apiUrl + '/guideitem/' + id);
+  }
+
+  getGuideItemsForGuide(id) {
+    console.log(this.guideItems);
+    const matches = [];
+    for (const guideItem of this.guideItems) {
+      if (guideItem.GuideDTORefId === id) {
+        matches.push(guideItem);
+      }
+    }
+    return matches;
+  }
+
   getFAQs() {
     return this.http.get(this.apiUrl + '/FAQ').toPromise().then((res) => {
       const faqs: FAQ[] = [];
-      for (const guideJson of res.json()) {
-        faqs.push(FAQ.fromJson(guideJson));
+      for (const faqJson of res.json()) {
+        faqs.push(FAQ.fromJson(faqJson));
       }
       return faqs;
     });
@@ -112,6 +133,12 @@ export class APIDataService {
       (err) => {
         console.log('Failed to delete FAQ: ' + err);
       });
+  }
+  getIsAdmin() {
+    return this.isAdmin;
+  }
+  makeAdmin() {
+    this.isAdmin = true;
   }
 }
 

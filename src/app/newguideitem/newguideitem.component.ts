@@ -42,6 +42,7 @@ export class NewguideitemComponent implements OnInit {
   submitGuideItem(title: string) {
     // this.uploader.uploadAll();
     this.dataService.postGuideItem(title, this.pdf, this.parentGuide.id);
+    this.goBack();
     // this.dataService.saveGuideItemFileRef(title, this.pdf.name, this.parentGuide.id);
   }
 }

@@ -4,6 +4,7 @@ import {trigger, keyframes, animate, transition } from '@angular/animations';
 import * as kf from '../keyframes';
 import {ConfirmDeletionDialogComponent} from '../confirm-deletion-dialog/confirm-deletion-dialog.component';
 import {MatDialog} from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-guide-item',
@@ -21,9 +22,12 @@ export class GuideItemComponent implements OnInit {
   @Input() pdfUrl;
   shouldHide = false;
   animationState: string;
-  constructor(private dataService: APIDataService, public dialog: MatDialog) { }
+
+  constructor(private dataService: APIDataService, public dialog: MatDialog, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    console.log('PDF');
+    console.log(this.pdfUrl);
   }
   deleteGuideItem() {
     // Wait for animation?
@@ -52,5 +56,8 @@ export class GuideItemComponent implements OnInit {
         this.deleteGuideItem();
       }
     });
+  }
+  getPDFUrl() {
+    return this.dataService.apiUrl + '/guideitem/' + this.id;
   }
 }

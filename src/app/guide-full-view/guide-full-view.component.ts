@@ -43,15 +43,14 @@ export class GuideFullViewComponent implements OnInit {
     }
   }
 
+  // Get all guideItems belonging to this guide
   getGuideItems() {
-    this.dataService.getGuideItemsForGuide(this.parent.id).then( res => {
-      const guideJSON = {
-        'GuideItemId': -1,
-        'title': 'TestTitle',
-        'guideUrl': res,
-        'GuideDTORefId': this.parent.id
-      };
-      this.guideItems[0] = GuideItem.fromJson(guideJSON);
+    this.dataService.getGuideItems().then((res) => {
+      for (const gi of res) {
+        if (gi.GuideDTORefId === this.parent.id) {
+          this.guideItems.push(gi);
+        }
+      }
     });
   }
 }

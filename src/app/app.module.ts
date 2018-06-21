@@ -45,6 +45,7 @@ import { environment } from '../environments/environment';
 import { NewguideitemComponent } from './newguideitem/newguideitem.component';
 import { FileUploadModule } from 'ng2-file-upload';
 
+
 const appRoutes: Routes = [
   { path: 'guides',
     component: GuidesComponent,
